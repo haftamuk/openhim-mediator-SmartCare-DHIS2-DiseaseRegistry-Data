@@ -1,2 +1,3 @@
-# openhim-mediator-SmartCare-DHIS2-DiseaseRegistry-sync
-This mediator pushes data from SmartCare(condition FHIR resource) to DHIS2(Disease registry custom dataset).
+# SmartCare-DHIS2-DiseaseRegistry-Data
+
+This is a yeoman generated mediator to get you started on mediator development.  To better understand the types of mediators [click here](http://openhim.readthedocs.io/en/latest/user-guide/mediators.html#mediator-types).

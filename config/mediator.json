@@ -1,0 +1,51 @@
+{
+  "urn": "urn:uuid:81f0d050-5d6e-11ea-9804-e9fedb59a5e3",
+  "version": "0.0.1",
+  "name": "SmartCare DHIS2 DiseaseRegistry Data",
+  "description": "This mediator pushes data from SmartCare(condition FHIR resource) to DHIS2(Disease registry custom dataset).",
+  "defaultChannelConfig": [
+    {
+      "name": "SmartCare DHIS2 DiseaseRegistry Data",
+      "urlPattern": "channelPath",
+      "alerts": [],
+      "txRerunAcl": [],
+      "txViewFullAcl": [],
+      "txViewAcl": [],
+      "properties": [],
+      "matchContentTypes": [],
+      "routes": [
+        {
+          "name": "SmartCare DHIS2 DiseaseRegistry Data Route",
+          "host": "localhost",
+          "port": "7000",
+          "primary": true,
+          "type": "http"
+        }
+      ],
+      "allow": ["admin"],
+      "type": "http"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "SmartCare DHIS2 DiseaseRegistry Data Route",
+      "host": "localhost",
+      "path": "/",
+      "port": "7000",
+      "primary": true,
+      "type": "http"
+    }
+  ],
+  "configDefs": [
+    {
+      "param": "upstreamUrl",
+      "displayName": "Upstream URL",
+      "description": "The URL of the service upstream of the mediator",
+      "type": "string",
+      "template": []
+    }
+  ],
+  "config": {
+    "upstreamUrl": "http://sampleApplication:7001"
+  }
+}
