@@ -3,49 +3,161 @@
   "version": "0.0.1",
   "name": "SmartCare DHIS2 DiseaseRegistry Data",
   "description": "This mediator pushes data from SmartCare(condition FHIR resource) to DHIS2(Disease registry custom dataset).",
-  "defaultChannelConfig": [
-    {
-      "name": "SmartCare DHIS2 DiseaseRegistry Data",
-      "urlPattern": "channelPath",
-      "alerts": [],
-      "txRerunAcl": [],
-      "txViewFullAcl": [],
-      "txViewAcl": [],
-      "properties": [],
-      "matchContentTypes": [],
-      "routes": [
-        {
-          "name": "SmartCare DHIS2 DiseaseRegistry Data Route",
-          "host": "localhost",
-          "port": "7000",
-          "primary": true,
-          "type": "http"
-        }
-      ],
-      "allow": ["admin"],
-      "type": "http"
+  "config": {
+    "dhis2_test": {
+      "password": "district",
+      "username": "admin",
+      "url": "https://play.dhis2.org/2.30/api/analytics"
+    },
+    "dhis2_prod": {
+      "password": "",
+      "username": "",
+      "url": ""
+    },
+    "smartCare_test": {
+      "password": "",
+      "username": "",
+      "url": "http://127.0.0.1:8000/"
+    },
+    "smartCare_prod": {
+      "password": "",
+      "username": "",
+      "url": "http://127.0.0.1:8000/"
     }
-  ],
-  "endpoints": [
-    {
+  },
+  "defaultChannelConfig": [{
+    "name": "SmartCare DHIS2 DiseaseRegistry Data",
+    "urlPattern": "/SmartCare-DHIS2/DiseaseRegistry",
+    "alerts": [],
+    "txRerunAcl": [],
+    "txViewFullAcl": [],
+    "txViewAcl": [],
+    "properties": [],
+    "matchContentTypes": [],
+    "routes": [{
       "name": "SmartCare DHIS2 DiseaseRegistry Data Route",
       "host": "localhost",
-      "path": "/",
       "port": "7000",
       "primary": true,
       "type": "http"
-    }
-  ],
+    }],
+    "allow": ["smartcare"],
+    "type": "http"
+  }],
   "configDefs": [
     {
-      "param": "upstreamUrl",
-      "displayName": "Upstream URL",
-      "description": "The URL of the service upstream of the mediator",
-      "type": "string",
-      "template": []
+      "param": "smartCare_test",
+      "displayName": "smartCare Test",
+      "description": "smartCare Test",
+      "type": "struct",
+      "template": [{
+          "type": "string",
+          "description": "smartCare",
+          "displayName": "smartCare",
+          "param": "url"
+        },
+        {
+          "type": "string",
+          "description": "smartCare username",
+          "displayName": "smartCare username",
+          "param": "username"
+        },
+        {
+          "type": "password",
+          "description": "smartCare Password",
+          "displayName": "smartCare Password",
+          "param": "password"
+        }
+      ],
+      "values": []
+    },
+   {
+      "param": "smartCare_prod",
+      "displayName": "smartCare Prod",
+      "description": "smartCare Prod",
+      "type": "struct",
+      "template": [{
+          "type": "string",
+          "description": "smartCare",
+          "displayName": "smartCare",
+          "param": "url"
+        },
+        {
+          "type": "string",
+          "description": "smartCare username",
+          "displayName": "smartCare username",
+          "param": "username"
+        },
+        {
+          "type": "password",
+          "description": "smartCare Password",
+          "displayName": "smartCare Password",
+          "param": "password"
+        }
+      ],
+      "values": []
+    },
+    {
+      "param": "dhis2_test",
+      "displayName": "dhis2_test",
+      "description": "dhis2_test Server",
+      "type": "struct",
+      "template": [{
+          "type": "string",
+          "description": "dhis2_test URL",
+          "displayName": "dhis2_test URL",
+          "param": "url"
+        },
+        {
+          "type": "string",
+          "description": "dhis2_test Username",
+          "displayName": "dhis2_test Username",
+          "param": "username"
+        },
+        {
+          "type": "password",
+          "description": "dhis2_test Password",
+          "displayName": "dhis2_test Password",
+          "param": "password"
+        }
+      ],
+      "values": []
+    },
+    {
+      "param": "dhis2_prod",
+      "displayName": "dhis2_prod",
+      "description": "dhis2_prod Server",
+      "type": "struct",
+      "template": [{
+          "type": "string",
+          "description": "dhis2_prod URL",
+          "displayName": "dhis2_prod URL",
+          "param": "url"
+        },
+        {
+          "type": "string",
+          "description": "dhis2_prod Username",
+          "displayName": "dhis2_prod Username",
+          "param": "username"
+        },
+        {
+          "type": "password",
+          "description": "dhis2_prod Password",
+          "displayName": "dhis2_prod Password",
+          "param": "password"
+        }
+      ],
+      "values": []
     }
   ],
-  "config": {
-    "upstreamUrl": "http://sampleApplication:7001"
-  }
+  "endpoints": [{
+    "name": "SmartCare DHIS2 Disease Registry Data",
+    "host": "192.168.1.3",
+    "path": "/FIX-ME",
+    "port": "7000",
+    "primary": true,
+    "forwardAuthHeader": true,
+    "status": "enabled",
+    "type": "http"
+  }]
 }
