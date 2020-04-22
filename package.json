@@ -31,11 +31,11 @@
     "xpath": "0.0.23"
   },
   "devDependencies": {
-    "onchange": "^6.1.0",
+    "onchange": "^6.1.1",
     "rewire": "^2.5.1",
     "snazzy": "^3.0.1",
     "standard": "^6.0.8",
-    "tap": "^14.10.6",
+    "tap": "^14.10.7",
     "winston": "^2.2.0"
   }
 }
