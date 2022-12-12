@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "eslint": "^6.8.0",
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "openhim-mediator-utils": "^0.2.2",
     "request": "^2.71.0",
     "requestretry": "^4.1.0",
